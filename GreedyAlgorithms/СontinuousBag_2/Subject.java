@@ -1,25 +1,25 @@
 public class Subject {
-    private int volume;
-    private int cost;
+    private Integer volume;
+    private Integer cost;
 
-    Subject(int cost, int volume) {
+    Subject(Integer cost, Integer volume) {
         this.cost = cost;
         this.volume = volume;
     }
 
-    public int getVolume() {
+    public Integer getVolume() {
         return volume;
     }
 
-    public void setVolume(int volume) {
+    public void setVolume(Integer volume) {
         this.volume = volume;
     }
 
-    public int getCost() {
+    public Integer getCost() {
         return cost;
     }
 
-    public void setCost(int cost) {
+    public void setCost(Integer cost) {
         this.cost = cost;
     }
 }
