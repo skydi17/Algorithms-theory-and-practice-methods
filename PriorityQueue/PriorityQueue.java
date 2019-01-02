@@ -4,9 +4,6 @@ public class PriorityQueue {
 
     PriorityQueue (int size) {
         data = new long[size];
-        /*for (int i = 0; i < size; i++) {
-            data[i] = -1;
-        } */
         this.size = 0;
     }
 
@@ -23,19 +20,25 @@ public class PriorityQueue {
     }
 
     private void siftDown(int current) {
-        while (current < size && (data[current] < data[leftChild(current)] ||
-                data[current] < data[rightChild(current)])) {
-            int maxChild = leftChild(current) > rightChild(current) ?
-                    leftChild(current) : rightChild(current);
+        int maxIndex = current;
+        int l = leftChild(current);
+        if (l <= size && data[l] > data[maxIndex]) {
+            maxIndex = l;
+        }
+        int r = rightChild(current);
+        if (r <= size && data[r] > data[maxIndex]) {
+            maxIndex = r;
+        }
+        if (current != maxIndex) {
             long temp = data[current];
-            data[current] = data[maxChild];
-            data[maxChild] = temp;
-            current = maxChild;
+            data[current] = data[maxIndex];
+            data[maxIndex] = temp;
+            siftDown(maxIndex);
         }
     }
 
     private void siftUp(int current) {
-        while (current != 0 && data[current] > data[parent(current)]) {
+        while (current > 0 && data[current] > data[parent(current)]) {
             long temp = data[current];
             data[current] = data[parent(current)];
             data[parent(current)] = temp;
@@ -44,16 +47,16 @@ public class PriorityQueue {
     }
 
     public void insert(long value) {
+        size++;
         data[size] = value;
         siftUp(size);
-        size++;
     }
 
     public long extractMax(){
         long max = data[0];
         data[0] = data[size];
-        siftDown(size);
         size--;
+        siftDown(0);
         return max;
     }
 }
