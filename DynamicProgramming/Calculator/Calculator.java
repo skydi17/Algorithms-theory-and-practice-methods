@@ -41,13 +41,13 @@ public class Calculator {
         if (n == 1) {
             System.out.println("0\n1");
         } else {
-            /*res.add(n);
+            res.add(n);
             calculate(n);
             System.out.println(res.size() - 1);
             res.sort((Integer a, Integer b) ->  a > b ? 1 : - 1);
             for(Integer i : res) {
                 System.out.print(i + " ");
-            } */
+            }
 
         }
     }
