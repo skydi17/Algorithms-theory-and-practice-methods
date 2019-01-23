@@ -35,7 +35,6 @@ public class Calculator {
 
     public static void main(String[] args) {
         fillSet();
-
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
         if (n == 1) {
